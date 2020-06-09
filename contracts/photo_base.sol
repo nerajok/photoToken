@@ -59,7 +59,7 @@ contract photoToken is ERC721 {
         address photoOwner = ownerOf(_photo.photo_id);
         etherBalance[photoOwner] += _amount;
         etherBalance[photoOwner] -= _amount;
-        _transfer(photoOwner,msg.sender,_photo.photo_id);
+        safeTransferFrom(photoOwner,msg.sender,_photo.photo_id);
         return true;
     }
 
